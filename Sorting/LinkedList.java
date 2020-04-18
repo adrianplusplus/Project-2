@@ -125,6 +125,57 @@ public class LinkedList<E extends Comparable<? super E>> {
         return pivot_prev;
     }
 
+
+    Node<E> mergeSort(Node<E> h) 
+    { 
+        // Base case : if head is null 
+        if (h == null || h.next == null) { 
+            return h; 
+        } 
+  
+        // get the middle of the list 
+        Node<E> middle = getMiddle(h); 
+        Node<E> nextofmiddle = middle.next; 
+  
+        // set the next of middle node to null 
+        middle.next = null; 
+  
+        // Apply mergeSort on left list 
+        Node<E> left = mergeSort(h); 
+  
+        // Apply mergeSort on right list 
+        Node<E> right = mergeSort(nextofmiddle); 
+  
+        // Merge the left and right lists 
+        Node<E> sortedlist = sortedMerge(left, right); 
+        return sortedlist; 
+    } 
+  
+
+    Node<E> sortedMerge(Node<E> a, Node<E> b) 
+    { 
+        Node<E> result = null; 
+        /* Base cases */
+        if (a == null) 
+            return b; 
+        if (b == null) 
+            return a; 
+  
+        /* Pick either a or b, and recur */
+        // if (a.val <= b.val) { 
+            if(a.val.compareTo(b.val) <= 0 ){
+            result = a; 
+            result.next = sortedMerge(a.next, b); 
+        } 
+        else { 
+            result = b; 
+            result.next = sortedMerge(a, b.next); 
+        } 
+        return result; 
+    } 
+  
+    
+    
     /************* Helper Methods *************************/
     Node<E> getLastNode() {
         Node<E> n = this.head;
@@ -132,6 +183,22 @@ public class LinkedList<E extends Comparable<? super E>> {
             n = n.next;
         return n;
     }
+
+    // Utility function to get the middle of the linked list 
+    Node<E> getMiddle(Node<E> head) 
+    { 
+        if (head == null) 
+            return head; 
+
+        Node<E> slow = head, fast = head; 
+
+        while (fast.next != null && fast.next.next != null) { 
+            slow = slow.next; 
+            fast = fast.next.next; 
+        } 
+        return slow; 
+    } 
+
 
     /* Function to print linked list */
     void printlist(Node<E> head) {
