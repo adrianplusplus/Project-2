@@ -71,19 +71,4 @@ public class LinkedList<E extends Comparable<? super E>> {
             head = head.next;
         }
     }
-
-    // Driver program to test above functions
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<Integer>();
-        list.push(5);
-        list.push(20);
-        list.push(4);
-        list.push(3);
-        list.push(30);
-        System.out.println("Linked List before Sorting..");
-        list.printlist(list.head);
-        list.insertionSort(list.head);
-        System.out.println("\nLinkedList After sorting");
-        list.printlist(list.head);
-    }
 }

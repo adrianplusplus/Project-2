@@ -1,10 +1,11 @@
 package Sorting;
 
-import java.util.LinkedList;
+import Sorting.LinkedList;
 
-public interface Sorting<E> 
-{
-	 public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed);
-	 public void quicksort(LinkedList<E> list, int lowindex, int highindex, boolean reversed);
-	 public void mergeSortLL(LinkedList<E> list, boolean reversed);
+public interface Sorting<E extends Comparable<? super E>> {
+	public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed);
+
+	public void quicksort(LinkedList<E> list, int lowindex, int highindex, boolean reversed);
+
+	public void mergeSortLL(LinkedList<E> list, boolean reversed);
 }
