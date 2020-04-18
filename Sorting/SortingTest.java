@@ -6,6 +6,7 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 
 	public static void main(String[] args) {
 		LinkedList<Integer> list = new LinkedList<Integer>();
+		SortingTest<Integer> sorting = new SortingTest<Integer>();
 		list.push(5);
 		list.push(20);
 		list.push(4);
@@ -13,8 +14,9 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 		list.push(30);
 		System.out.println("Linked List before Sorting..");
 		list.printlist(list.head);
-		// TODO: change to use insertion method at line 24 !!!!!!!!!!!!!!!!!!!!
-		list.insertionSort(list.head);
+
+		sorting.insertionSort(list, 0, 4, false);
+
 		System.out.println("\nLinkedList After sorting");
 		list.printlist(list.head);
 
@@ -22,8 +24,9 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 
 	@Override
 	public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) {
-		// TODO Auto-generated method stub
-
+		// TODO: change insertionSort signture to be the same as above(accept low and
+		// high index and a reversed flag)
+		list.insertionSort(list.head);
 	}
 
 	@Override
