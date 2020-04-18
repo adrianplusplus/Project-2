@@ -64,6 +64,75 @@ public class LinkedList<E extends Comparable<? super E>> {
         }
     }
 
+    // function to sort a singly linked list using insertion sort
+    void quickSort(Node<E> start, Node<E> end) {
+        if (start == end)
+            return;
+
+        // split list and partion recurse
+        Node<E> pivot_prev = paritionLast(start, end);
+        quickSort(start, pivot_prev);
+
+        // if pivot is picked and moved to the start,
+        // that means start and pivot is same
+        // so pick from next of pivot
+        if (pivot_prev != null && pivot_prev == start)
+            quickSort(pivot_prev.next, end);
+
+        // if pivot is in between of the list,
+        // start from next of pivot,
+        // since we have pivot_prev, so we move two nodes
+        else if (pivot_prev != null && pivot_prev.next != null)
+            quickSort(pivot_prev.next.next, end);
+    }
+
+    /*
+     * takes first and last node, but do not break any links in the whole linked
+     * list
+     */
+    Node<E> paritionLast(Node<E> start, Node<E> end) {
+        if (start == end || start == null || end == null)
+            return start;
+
+        Node<E> pivot_prev = start;
+        Node<E> curr = start;
+        E pivot = end.val;
+
+        // iterate till one before the end,
+        // no need to iterate till the end
+        // because end is pivot
+        while (start != end) {
+            // if (start.val < pivot) {
+            if (start.val.compareTo(pivot) < 0) {
+                // keep tracks of last modified item
+                pivot_prev = curr;
+                E temp = curr.val;
+                curr.val = start.val;
+                start.val = temp;
+                curr = curr.next;
+            }
+            start = start.next;
+        }
+
+        // swap the position of curr i.e.
+        // next suitable index and pivot
+        E temp = curr.val;
+        curr.val = pivot;
+        end.val = temp;
+
+        // return one previous to current
+        // because current is now pointing to pivot
+        return pivot_prev;
+    }
+
+    /************* Helper Methods *************************/
+    Node<E> getLastNode() {
+        Node<E> n = this.head;
+        while (n.next != null)
+            n = n.next;
+        return n;
+    }
+
     /* Function to print linked list */
     void printlist(Node<E> head) {
         while (head != null) {
