@@ -1,7 +1,5 @@
 package Sorting;
 
-import Sorting.LinkedList;
-
 public interface Sorting<E extends Comparable<? super E>> {
 	public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed);
 
