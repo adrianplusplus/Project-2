@@ -1,25 +1,53 @@
 package Sorting;
 
-import Sorting.LinkedList;
+import java.util.Random;
 
 public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> {
 
 	public static void main(String[] args) {
-		LinkedList<Integer> list = new LinkedList<Integer>();
 		SortingTest<Integer> sorting = new SortingTest<Integer>();
-		list.push(5);
-		list.push(20);
-		list.push(4);
-		list.push(3);
-		list.push(30);
-		System.out.println("Linked List before Sorting..");
+		int items_in_list = 5;
+		LinkedList<Integer> list = sorting.GetNewLisWithNumbers(items_in_list);
+
+		// test intestion sort
+		System.out.println("Linked List before Insertion Sort..");
+		list.printlist(list.head);
+		sorting.insertionSort(list, 0, items_in_list - 1, false);
+		System.out.println("\nLinkedList After Insertion Sort");
 		list.printlist(list.head);
 
-		sorting.insertionSort(list, 0, 4, false);
+		System.out.println("\n");
 
-		System.out.println("\nLinkedList After sorting");
+		// test quick sort
+		list = sorting.GetNewLisWithNumbers(items_in_list);
+		System.out.println("Linked List before Quick Sort..");
+		list.printlist(list.head);
+		sorting.quicksort(list, 0, items_in_list - 1, false);
+		System.out.println("\nLinkedList After Quick Sort");
 		list.printlist(list.head);
 
+		System.out.println("\n");
+
+		// test merge sort
+		list = sorting.GetNewLisWithNumbers(items_in_list);
+		System.out.println("Linked List before Merge Sort..");
+		list.printlist(list.head);
+		sorting.mergeSortLL(list, false);
+		System.out.println("\nLinkedList After Merge Sort");
+		list.printlist(list.head);
+	}
+
+	// get a linked list with n elements
+	private LinkedList<Integer> GetNewLisWithNumbers(int n) {
+		int temp_number = n;
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		Random r = new Random();
+		while (n > 0) {
+			list.push(r.nextInt(temp_number));
+			n--;
+		}
+
+		return list;
 	}
 
 	@Override
@@ -31,8 +59,9 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 
 	@Override
 	public void quicksort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) {
-		// TODO Auto-generated method stub
-
+		// TODO: change insertionSort signture to be the same as above(accept low and
+		// high index and a reversed flag)
+		list.quickSort(list.head, list.getLastNode());
 	}
 
 	@Override
