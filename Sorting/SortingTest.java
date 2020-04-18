@@ -66,8 +66,9 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 
 	@Override
 	public void mergeSortLL(LinkedList<E> list, boolean reversed) {
-		// TODO Auto-generated method stub
-
+		// TODO: change mergeSortLL signture to be the same as above(accept low and
+		// high index and a reversed flag)
+		list.mergeSort(list.head);
 	}
 
 }
