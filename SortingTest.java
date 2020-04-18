@@ -1,71 +1,29 @@
-package sorting;
+package Sorting;
 
 import java.util.LinkedList;
 
-class Node
-{
-	int data;
-	Node next;
-}
+public class SortingTest<E> implements Sorting<E>{
 
-class LinkedL
-{
-	
-	
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-public class SortingTest<E> implements Sorting<E>
-{
-
-	public static void main(String[] args) 
-	{
-		
-		
-		
-		//insertionSort(null, 0, 0, false);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) 
-	{
-		 
-		Node root = null;
-		LinkedL a = new LinkedL();
-		
-//		root = a.insert();
-//		root = a.insert();
-//		root = a.insert();
-		
-		
+	public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void quicksort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) 
-	{
-		
-		
-		
+	public void quicksort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void mergeSortLL(LinkedList<E> list, boolean reversed) 
-	{
-		
+	public void mergeSortLL(LinkedList<E> list, boolean reversed) {
+		// TODO Auto-generated method stub
 		
 	}
 
