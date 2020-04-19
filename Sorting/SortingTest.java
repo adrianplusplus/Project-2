@@ -60,9 +60,10 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 	}
 
 	private LinkedList<Integer> GetAscendingOrderList(int n){
+		int temp_number = 0;
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		while (n > 0) {
-			list.push(n);
+			list.push(temp_number++);
 			n--;
 		}
 
@@ -70,10 +71,9 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 	}
 
 	private LinkedList<Integer> GetDescendingOrderList(int n){
-		int temp_number = 0;
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		while (n > 0) {
-			list.push(temp_number++);
+			list.push(n);
 			n--;
 		}
 
