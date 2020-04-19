@@ -4,30 +4,18 @@ import java.util.Random;
 
 public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> {
 
-	public static void main(String[] args){
-		SortingTest<Integer> sorting = new SortingTest<Integer>();
-		LinkedList<Integer> list = sorting.GetNewLisWithNumbers(10);
-		list.printlist(list.head);
 
-		System.out.println("\n");
-		list = sorting.GetAscendingOrderList(10);
-		list.printlist(list.head);
-
-		System.out.println("\n");
-		list = sorting.GetDescendingOrderList(10);
-		list.printlist(list.head);
-	}
-
-	public static void main2(String[] args) {
+	public static void main(String[] args) {
 		// sce 1 random list
 		// sce 2 scending order
 		// sce 3 descending order
 
 		SortingTest<Integer> sorting = new SortingTest<Integer>();
 		int items_in_list = 10;
-		LinkedList<Integer> list = sorting.GetNewLisWithNumbers(items_in_list);
+		LinkedList<Integer> list;
 
 		// test intestion sort
+		list  = sorting.GetNewLisWithNumbers(items_in_list);
 		System.out.println("Linked List before Insertion Sort..");
 		list.printlist(list.head);
 		sorting.insertionSort(list, 0, items_in_list - 1, false);
