@@ -103,6 +103,7 @@ public class LinkedList<E extends Comparable<? super E>> {
         // because end is pivot
         while (start != end) {
             // if (start.val < pivot) {
+            if(start == null || curr.next == null) break;
             if (start.val.compareTo(pivot) < 0) {
                 // keep tracks of last modified item
                 pivot_prev = curr;
