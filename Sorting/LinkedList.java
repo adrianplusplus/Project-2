@@ -163,7 +163,7 @@ public class LinkedList<E extends Comparable<? super E>> {
   
         /* Pick either a or b, and recur */
         // if (a.val <= b.val) { 
-        if(a.val.compareTo(b.val) <= 0 ){
+            if(a.val.compareTo(b.val) <= 0 ){
             result = a; 
             result.next = sortedMerge(a.next, b); 
         } 
