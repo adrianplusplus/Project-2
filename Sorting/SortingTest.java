@@ -4,9 +4,27 @@ import java.util.Random;
 
 public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		SortingTest<Integer> sorting = new SortingTest<Integer>();
-		int items_in_list = 5;
+		LinkedList<Integer> list = sorting.GetNewLisWithNumbers(10);
+		list.printlist(list.head);
+
+		System.out.println("\n");
+		list = sorting.GetAscendingOrderList(10);
+		list.printlist(list.head);
+
+		System.out.println("\n");
+		list = sorting.GetDescendingOrderList(10);
+		list.printlist(list.head);
+	}
+
+	public static void main2(String[] args) {
+		// sce 1 random list
+		// sce 2 scending order
+		// sce 3 descending order
+
+		SortingTest<Integer> sorting = new SortingTest<Integer>();
+		int items_in_list = 10;
 		LinkedList<Integer> list = sorting.GetNewLisWithNumbers(items_in_list);
 
 		// test intestion sort
@@ -15,6 +33,8 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 		sorting.insertionSort(list, 0, items_in_list - 1, false);
 		System.out.println("\nLinkedList After Insertion Sort");
 		list.printlist(list.head);
+
+
 
 		System.out.println("\n");
 
@@ -39,6 +59,7 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 
 	// get a linked list with n elements
 	private LinkedList<Integer> GetNewLisWithNumbers(int n) {
+
 		int temp_number = n;
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		Random r = new Random();
@@ -50,8 +71,34 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 		return list;
 	}
 
+	private LinkedList<Integer> GetAscendingOrderList(int n){
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		while (n > 0) {
+			list.push(n);
+			n--;
+		}
+
+		return list;
+	}
+
+	private LinkedList<Integer> GetDescendingOrderList(int n){
+		int temp_number = 0;
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		while (n > 0) {
+			list.push(temp_number++);
+			n--;
+		}
+
+		return list;
+	}
+
 	@Override
 	public void insertionSort(LinkedList<E> list, int lowindex, int highindex, boolean reversed) {
+		// reversed = true
+		// we were given a list that is sorted from high to low
+		// reversed  = false
+		// we were given a list that is random
+		
 		// TODO: change insertionSort signture to be the same as above(accept low and
 		// high index and a reversed flag)
 		list.insertionSort(list.head);
