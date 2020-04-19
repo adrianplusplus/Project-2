@@ -10,39 +10,90 @@ public class SortingTest<E extends Comparable<? super E>> implements Sorting<E> 
 		// sce 2 scending order
 		// sce 3 descending order
 
-		SortingTest<Integer> sorting = new SortingTest<Integer>();
-		int items_in_list = 10;
-		LinkedList<Integer> list;
 
-		// test intestion sort
-		list  = sorting.GetNewLisWithNumbers(items_in_list);
-		System.out.println("Linked List before Insertion Sort..");
-		list.printlist(list.head);
-		sorting.insertionSort(list, 0, items_in_list - 1, false);
-		System.out.println("\nLinkedList After Insertion Sort");
-		list.printlist(list.head);
+		int[] testCases = {10, 50, 100, 150, 300, 500, 1000, 1500};
+		for(int i = 0 ; i < testCases.length; i++){
+			int testNum = testCases[i];
+			System.out.println("running tests for n = " + testNum);
+			SortingTest<Integer> sorting = new SortingTest<Integer>();
+			LinkedList<Integer> list;
+	
+			// test insertion sort
+			list  = sorting.GetNewLisWithNumbers(testNum);
+			System.out.println("Linked List before Insertion Sort..");
+			list.printlist(list.head);
+			sorting.insertionSort(list, 0, testNum - 1, false);
+			System.out.println("\nLinkedList After Insertion Sort");
+			list.printlist(list.head);
 
+			list  = sorting.GetAscendingOrderList(testNum);
+			System.out.println("Linked List before Insertion Sort..");
+			list.printlist(list.head);
+			sorting.insertionSort(list, 0, testNum - 1, false);
+			System.out.println("\nLinkedList After Insertion Sort");
+			list.printlist(list.head);
+	
 
+			list  = sorting.GetDescendingOrderList(testNum);
+			System.out.println("Linked List before Insertion Sort..");
+			list.printlist(list.head);
+			sorting.insertionSort(list, 0, testNum - 1, false);
+			System.out.println("\nLinkedList After Insertion Sort");
+			list.printlist(list.head);
+	
+	
+	
+	
+			System.out.println("\n");
+	
+			// test quick sort
+			// list = sorting.GetNewLisWithNumbers(testNum);
+			// System.out.println("Linked List before Quick Sort..");
+			// list.printlist(list.head);
+			// sorting.quicksort(list, 0, testNum - 1, false);
+			// System.out.println("\nLinkedList After Quick Sort");
+			// list.printlist(list.head);
 
-		System.out.println("\n");
+			// list = sorting.GetAscendingOrderList(testNum);
+			// System.out.println("Linked List before Quick Sort..");
+			// list.printlist(list.head);
+			// sorting.quicksort(list, 0, testNum - 1, false);
+			// System.out.println("\nLinkedList After Quick Sort");
+			// list.printlist(list.head);
 
-		// test quick sort
-		list = sorting.GetNewLisWithNumbers(items_in_list);
-		System.out.println("Linked List before Quick Sort..");
-		list.printlist(list.head);
-		sorting.quicksort(list, 0, items_in_list - 1, false);
-		System.out.println("\nLinkedList After Quick Sort");
-		list.printlist(list.head);
+			// list = sorting.GetDescendingOrderList(testNum);
+			// System.out.println("Linked List before Quick Sort..");
+			// list.printlist(list.head);
+			// sorting.quicksort(list, 0, testNum - 1, false);
+			// System.out.println("\nLinkedList After Quick Sort");
+			// list.printlist(list.head);
+	
+			System.out.println("\n");
+	
+			// test merge sort
+			list = sorting.GetNewLisWithNumbers(testNum);
+			System.out.println("Linked List before Merge Sort..");
+			list.printlist(list.head);
+			sorting.mergeSortLL(list, false);
+			System.out.println("\nLinkedList After  Merge Sort");
+			list.printlist(list.head);
 
-		System.out.println("\n");
+			list = sorting.GetAscendingOrderList(testNum);
+			System.out.println("Linked List before Merge Sort..");
+			list.printlist(list.head);
+			sorting.mergeSortLL(list, false);
+			System.out.println("\nLinkedList After Merge Sort");
+			list.printlist(list.head);
 
-		// test merge sort
-		list = sorting.GetNewLisWithNumbers(items_in_list);
-		System.out.println("Linked List before Merge Sort..");
-		list.printlist(list.head);
-		sorting.mergeSortLL(list, false);
-		System.out.println("\nLinkedList After Merge Sort");
-		list.printlist(list.head);
+			list = sorting.GetDescendingOrderList(testNum);
+			System.out.println("Linked List before Merge Sort..");
+			list.printlist(list.head);
+			sorting.mergeSortLL(list, false);
+			System.out.println("\nLinkedList After Merge Sort");
+			list.printlist(list.head);
+		}
+
+		
 	}
 
 	// get a linked list with n elements
